@@ -4,9 +4,65 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sma_visualization"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#B4EDD2" Offset="0"/>
+                    <GradientStop Color="#A0CFD3" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.ColumnSpan="2" Content="FIZUES" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+
+            </Label>
+
+            <Label Content="Symbol:" HorizontalAlignment="Center" Grid.Row="1"></Label>
+            <ComboBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"></ComboBox>
+
+            <Label Content="Interval:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2"></Label>
+            <ComboBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="2"></ComboBox>
+
+            <Label Content="Time period:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="3"></Label>
+            <TextBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="3"></TextBox>
+
+            <Label Content="Series type:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4"></Label>
+            <ComboBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="4"></ComboBox>
+
+            <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Content="Show" Margin="40 5 40 5" Style="{StaticResource button}"></Button>
+    
+        </Grid>
+        <Grid Grid.Column="1">
+            <lvc:CartesianChart LegendLocation="Right" >
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis Title="Sales"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Month"></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+        </Grid>
     </Grid>
 </Window>
