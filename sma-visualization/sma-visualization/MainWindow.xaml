@@ -52,15 +52,15 @@
             <ComboBox Margin="5 5 5 5" Grid.Column="1" Grid.Row="4"></ComboBox>
 
             <Button Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Content="Show" Margin="40 5 40 5" Style="{StaticResource button}"></Button>
-    
+
         </Grid>
         <Grid Grid.Column="1">
-            <lvc:CartesianChart LegendLocation="Right" >
+            <lvc:CartesianChart LegendLocation="Right" Series="{Binding Path=lineChart.SeriesCollection}">
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Sales"></lvc:Axis>
+                    <lvc:Axis Title="Sales" LabelFormatter="{Binding Path=lineChart.YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Month"></lvc:Axis>
+                    <lvc:Axis Title="Month" Labels="{Binding Path=lineChart.Labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         </Grid>

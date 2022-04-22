@@ -9,7 +9,7 @@ using System.Web.Script.Serialization;
 
 namespace sma_visualization
 {
-    internal class SMAParser
+    public class SMAParser
     {
         
         public SMAData parseData(string symbol = "IBM", string interval = "weekly", string timePeriod = "10", string seriesType = "open")
@@ -31,7 +31,7 @@ namespace sma_visualization
                 string SMAIndicator = metaData["2: Indicator"];
                 DateTime SMADate = createDateObject(metaData["3: Last Refreshed"]);
                 string SMAInterval = metaData["4: Interval"];
-                int SMATimePeriod = Int32.Parse(metaData["5: Time Period"]);
+                int SMATimePeriod = Convert.ToInt32(metaData["5: Time Period"]);
                 string SMASeriesType = metaData["6: Series Type"];
                 string SMATimeZone = metaData["7: Time Zone"];
 
@@ -39,7 +39,7 @@ namespace sma_visualization
                 foreach (string smaDate in SMAListRaw.Keys)
                 {
                     DateTime date = createDateObject(smaDate);
-                    SMA newSMA = new SMA(date, SMAListRaw[smaDate]["SMA"]);
+                    SMA newSMA = new SMA(date, Convert.ToDouble(SMAListRaw[smaDate]["SMA"]));
                     smaData.Add(newSMA);
                 }
 

@@ -24,9 +24,14 @@ namespace sma_visualization
     {
         public MainWindow()
         {
-            SMAParser p = new SMAParser();
-            p.parseData();
+            parser = new SMAParser();
+            lineChart = new LineChart(parser.parseData());
+            
             InitializeComponent();
         }
+
+        public LineChart lineChart { get; set; }    
+        public SMAParser parser { get; set; }
+
     }
 }

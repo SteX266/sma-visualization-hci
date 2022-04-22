@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace sma_visualization
 {
-    internal class SMAData
+    public class SMAData
     {
         public string Symbol { get; set; }
         public string Indicator { get; set; }
@@ -35,15 +35,15 @@ namespace sma_visualization
         }
     }
 
-        internal class SMA
+        public class SMA
         {
             public DateTime Date { get; set; }
-            public int Value { get; set; }
+            public double Value { get; set; }
 
-            public SMA(DateTime date, int v)
+            public SMA(DateTime date, double value)
             {
                 Date = date;
-                Value = v;
+                Value = value;
             }
         }
     }
