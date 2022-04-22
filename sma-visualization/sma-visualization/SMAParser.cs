@@ -12,12 +12,11 @@ namespace sma_visualization
     internal class SMAParser
     {
         
-        public SMAData parseData()
+        public SMAData parseData(string symbol = "IBM", string interval = "weekly", string timePeriod = "10", string seriesType = "open")
         {
-            SMAData data = new SMAData();
+            List<SMA> smaData = new List<SMA>();
 
-            // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-            string QUERY_URL = "https://www.alphavantage.co/query?function=SMA&symbol=IBM&interval=weekly&time_period=10&series_type=open&apikey=demo";
+            string QUERY_URL = "https://www.alphavantage.co/query?function=SMA&symbol="+symbol+"&interval="+ interval+"&time_period="+timePeriod+"&series_type="+seriesType+"&apikey=demo";
             Uri queryUri = new Uri(QUERY_URL);
 
             using (WebClient client = new WebClient())
@@ -25,16 +24,40 @@ namespace sma_visualization
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 dynamic json_data = js.Deserialize(client.DownloadString(queryUri), typeof(object));
+                dynamic metaData = json_data["Meta Data"];
+                dynamic SMAListRaw = json_data["Technical Analysis: SMA"];
+
+                string SMASymbol = metaData["1: Symbol"];
+                string SMAIndicator = metaData["2: Indicator"];
+                DateTime SMADate = createDateObject(metaData["3: Last Refreshed"]);
+                string SMAInterval = metaData["4: Interval"];
+                int SMATimePeriod = Int32.Parse(metaData["5: Time Period"]);
+                string SMASeriesType = metaData["6: Series Type"];
+                string SMATimeZone = metaData["7: Time Zone"];
 
 
-                Console.WriteLine(json_data);
+                foreach (string smaDate in SMAListRaw.Keys)
+                {
+                    DateTime date = createDateObject(smaDate);
+                    SMA newSMA = new SMA(date, SMAListRaw[smaDate]["SMA"]);
+                    smaData.Add(newSMA);
+                }
 
+                SMAData data = new SMAData(SMASymbol, SMAIndicator, SMADate, SMAInterval, SMATimePeriod, SMASeriesType, SMATimeZone, smaData);
 
+                return data;
             }
 
-            return data;
         }
 
-
+        private DateTime createDateObject(string smaDate)
+        {
+            string[] tokens = smaDate.Split('-');
+            int year = int.Parse(tokens[0]);
+            int month = int.Parse(tokens[1]);
+            int day = int.Parse(tokens[2]);
+            DateTime date = new DateTime(year, month, day);
+            return date;
+        }
     }
 }
