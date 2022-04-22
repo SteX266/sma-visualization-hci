@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace hci_mini_projekat
+namespace sma_visualization
 {
     /// <summary>
     /// Interaction logic for App.xaml

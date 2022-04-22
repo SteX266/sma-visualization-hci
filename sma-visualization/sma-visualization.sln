@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hci-mini-projekat", "hci-mini-projekat\hci-mini-projekat.csproj", "{D38FB393-EE89-449A-8992-DAB4FCF16ED6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sma-visualization", "sma-visualization\sma-visualization.csproj", "{B380EB37-DA90-468F-A499-D8849B998CBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D38FB393-EE89-449A-8992-DAB4FCF16ED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D38FB393-EE89-449A-8992-DAB4FCF16ED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D38FB393-EE89-449A-8992-DAB4FCF16ED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D38FB393-EE89-449A-8992-DAB4FCF16ED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B380EB37-DA90-468F-A499-D8849B998CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B380EB37-DA90-468F-A499-D8849B998CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B380EB37-DA90-468F-A499-D8849B998CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B380EB37-DA90-468F-A499-D8849B998CBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3CE92E6D-22F9-49F1-ACC8-E0B582747C6F}
+		SolutionGuid = {EEC807F3-41DE-4232-BA4B-523764AC250C}
 	EndGlobalSection
 EndGlobal

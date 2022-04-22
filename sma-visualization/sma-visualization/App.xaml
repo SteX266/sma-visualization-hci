@@ -1,7 +1,7 @@
-﻿<Application x:Class="hci_mini_projekat.App"
+﻿<Application x:Class="sma_visualization.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:hci_mini_projekat"
+             xmlns:local="clr-namespace:sma_visualization"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

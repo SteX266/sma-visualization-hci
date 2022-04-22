@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace hci_mini_projekat
+namespace sma_visualization
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,6 +22,8 @@ namespace hci_mini_projekat
     {
         public MainWindow()
         {
+            SMAParser p = new SMAParser();
+            p.parseData();
             InitializeComponent();
         }
     }
