@@ -22,16 +22,22 @@ namespace sma_visualization
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public LineChart lineChart { get; set; }
+        public SMAParser parser { get; set; }
         public MainWindow()
         {
+            InitializeComponent();
+
             parser = new SMAParser();
             lineChart = new LineChart(parser.parseData());
+           
+            DataContext = this;
+            lineChart.initializeData();
             
-            InitializeComponent();
         }
 
-        public LineChart lineChart { get; set; }    
-        public SMAParser parser { get; set; }
+
 
     }
 }

@@ -2,9 +2,6 @@
 using LiveCharts.Wpf;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -12,17 +9,22 @@ namespace sma_visualization
 {
     public partial class LineChart : UserControl
     {
+        public SMAData data { get; set; }
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> YFormatter { get; set; }
+
         public LineChart(SMAData d)
         {
             // InitializeComponent();
             data = d;
             SeriesCollection = new SeriesCollection();
-
             Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
-            YFormatter = value => value.ToString("C");
-            DataContext = this;
         }
-        private void initializeData()
+
+
+
+        public void initializeData()
         {
             List<double> values = new List<double>();
             List<string> dates = new List<string>();
@@ -42,10 +44,7 @@ namespace sma_visualization
             });
         }
 
-        public SMAData data { get; set; }
-        public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
-        public Func<double, string> YFormatter { get; set; }
+
 
     }
 }
