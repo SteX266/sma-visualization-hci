@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:sma_visualization"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="SMA Visualization" Height="450" Width="800" Icon="/stonks.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -40,21 +40,20 @@
             </Label>
 
             <Label Content="Symbol:" HorizontalAlignment="Center" Grid.Row="1"></Label>
-            <ComboBox Name="comboSymbol" Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"></ComboBox>
+            <ComboBox Name="comboSymbol" Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"/>
 
             <Label Content="Interval:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2"></Label>
             <ComboBox Name="comboInterval" Margin="5 5 5 5" Grid.Column="1" Grid.Row="2"></ComboBox>
 
             <Label Content="Time period:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="3"></Label>
-            <TextBox Name ="comboTimePeriod" Margin="5 5 5 5" Grid.Column="1" Grid.Row="3"></TextBox>
+            <TextBox Name ="textTimePeriod" Margin="5 5 5 5" Grid.Column="1" Grid.Row="3"></TextBox>
 
             <Label Content="Series type:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4"></Label>
             <ComboBox Name="comboSeriesType" Margin="5 5 5 5" Grid.Column="1" Grid.Row="4"></ComboBox>
 
-            <Button Name ="btnClear" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="5" Content="Clear" Margin="15 5 15 5" Style="{StaticResource button}"></Button>
-            <Button Name="btnShow"  Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="5" Content="Show" Margin="15 5 15 5" Style="{StaticResource button}"></Button>
-
-            <Button Name="btnTable" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Content="Table" Margin="40 5 40 5" Style="{StaticResource button}"></Button>
+            <Button Name ="btnClear" Click="ClearLineChart" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="5" Content="Clear" Margin="15 5 15 5" Style="{StaticResource button}"></Button>
+            <Button Name="btnShow" Click="ShowLineChart"  Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="5" Content="Show" Margin="15 5 15 5" Style="{StaticResource button}"></Button>
+            <Button Name="btnTable" Click="ShowTable" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Content="Table" Margin="40 5 40 5" Style="{StaticResource button}"></Button>
 
         </Grid>
         <Grid Grid.Column="1">

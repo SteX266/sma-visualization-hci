@@ -16,7 +16,7 @@ namespace sma_visualization
         {
             List<SMA> smaData = new List<SMA>();
 
-            string QUERY_URL = "https://www.alphavantage.co/query?function=SMA&symbol="+symbol+"&interval="+ interval+"&time_period="+timePeriod+"&series_type="+seriesType+"&apikey=demo";
+            string QUERY_URL = "https://www.alphavantage.co/query?function=SMA&symbol="+symbol+"&interval="+ interval+"&time_period="+timePeriod+"&series_type="+seriesType+ "&apikey=U7LNNB8KPZINPTNQ";
             Uri queryUri = new Uri(QUERY_URL);
 
             using (WebClient client = new WebClient())

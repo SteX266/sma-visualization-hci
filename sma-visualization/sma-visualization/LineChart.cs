@@ -14,18 +14,17 @@ namespace sma_visualization
         public string[] Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
 
-        public LineChart(SMAData d)
+        public LineChart()
         {
-            // InitializeComponent();
-            data = d;
             SeriesCollection = new SeriesCollection();
             Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
         }
 
 
 
-        public void initializeData()
+        public void showData(SMAData givenData)
         {
+            data = givenData;
             List<double> values = new List<double>();
             List<string> dates = new List<string>();
             List<SMA> points = data.SMAlist;
@@ -44,7 +43,9 @@ namespace sma_visualization
             });
         }
 
-
-
+        public void ClearData()
+        {
+            SeriesCollection.Clear();
+        }
     }
 }
