@@ -36,11 +36,11 @@ namespace sma_visualization
             values.Reverse();
             dates.Reverse();
 
+            foreach(string date in dates)
+            {
+                Labels.Add(date);
+            }
 
-            int n = dates.Count;
-            Labels.Add(dates[0]);
-            Labels.Add(dates[n / 2]);
-            Labels.Add(dates[n - 1]);
 
             SeriesCollection.Add(new LineSeries
             {
