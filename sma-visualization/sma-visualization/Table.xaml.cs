@@ -14,14 +14,30 @@ using System.Windows.Shapes;
 
 namespace sma_visualization
 {
-    /// <summary>
-    /// Interaction logic for Table.xaml
-    /// </summary>
+
     public partial class Table : Window
     {
         public Table(SMAData data)
         {
             InitializeComponent();
+
+            foreach(SMA sma in data.SMAlist)
+            {
+                string dateString;
+                if (data.Interval == "daily" || data.Interval == "weekly" || data.Interval == "monthly")
+                {
+                    dateString = sma.Date.ToString("dd.MM.yyyy");
+
+                }
+                else
+                {
+                    dateString = sma.Date.ToString("dd.MM.yyyy HH:mm");
+                }
+                SMATable tableItem = new SMATable(data.Symbol, dateString, sma.Value);
+
+                TableGrid.Items.Add(tableItem);
+            }
+
         }
     }
 }

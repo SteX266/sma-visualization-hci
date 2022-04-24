@@ -56,8 +56,19 @@ namespace sma_visualization
             string[] tokens = smaDate.Split('-');
             int year = int.Parse(tokens[0]);
             int month = int.Parse(tokens[1]);
-            int day = int.Parse(tokens[2]);
-            DateTime date = new DateTime(year, month, day);
+            string[] timeTokens = tokens[2].Split(' ');
+            int day = int.Parse(timeTokens[0]);
+            int hours = 0;
+            int minutes = 0;
+            int seconds = 0;
+            if (timeTokens.Length > 1)
+            {
+                string [] hoursTokens = timeTokens[1].Split(':');
+                hours = int.Parse(hoursTokens[0]);
+                minutes = int.Parse(hoursTokens[1]);
+            }
+
+            DateTime date = new DateTime(year, month, day, hours, minutes, seconds);
             return date;
         }
     }

@@ -48,7 +48,7 @@
             <ComboBox Name="comboInterval" Margin="5 5 5 5" Grid.Column="1" Grid.Row="2"></ComboBox>
 
             <Label Content="Time period:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="3"></Label>
-            <TextBox Name ="textTimePeriod" Margin="5 5 5 5" Grid.Column="1" Grid.Row="3" Text="1"></TextBox>
+            <TextBox Name ="textTimePeriod" Margin="5 5 5 5" Grid.Column="1" Grid.Row="3" Text="5"></TextBox>
 
             <Label Content="Series type:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4"></Label>
             <Border Name="seriesBorder" BorderThickness="1" Grid.Column="1" Grid.Row="4" Margin="4 4 4 4"/>
@@ -68,7 +68,7 @@
                     <lvc:Axis Title="USD" LabelFormatter="{Binding Path=lineChart.YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Month" Labels="{Binding Path=lineChart.Labels}"></lvc:Axis>
+                    <lvc:Axis Name="XAxis" Title="Date" Labels="{Binding Path=lineChart.Labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         </Grid>

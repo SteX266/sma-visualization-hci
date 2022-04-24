@@ -87,6 +87,8 @@ namespace sma_visualization
 
         private void ShowLineChart(object sender, RoutedEventArgs e)
         {
+
+            lineChart.ClearData();
             string symbol = comboSymbol.Text;
             string interval = comboInterval.Text;
             string seriesType = comboSeriesType.Text;
@@ -97,6 +99,7 @@ namespace sma_visualization
             {
                 SMAData data = parser.parseData(symbol, interval, timePeriod, seriesType);
                 currentData = data;
+                XAxis.Labels = lineChart.Labels;
                 lineChart.showData(data);
             } else
             {
@@ -122,20 +125,20 @@ namespace sma_visualization
             try
             {
                 int value = Convert.ToInt32(timePeriod);
-                if (value <= 0)
+                if (value <= 1)
                     return false;
                 return true;
             }
             catch (Exception)
             {
+                return false;
 
             }
-            return false;
         }
 
         private bool isDataValid(string symbol, string interval, string seriesType, string timePeriod)
         {
-            if (symbol == "" || interval == "" || seriesType == "" || isTimePeriodValid(timePeriod))
+            if (symbol == "" || interval == "" || seriesType == "" || !isTimePeriodValid(timePeriod))
                 return false;
             return true;
         }

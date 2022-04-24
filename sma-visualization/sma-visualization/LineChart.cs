@@ -11,13 +11,13 @@ namespace sma_visualization
     {
         public SMAData data { get; set; }
         public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
+        public List<string> Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
 
         public LineChart()
         {
             SeriesCollection = new SeriesCollection();
-            Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
+            Labels = new List<string>();
         }
 
 
@@ -31,10 +31,17 @@ namespace sma_visualization
             foreach (SMA point in points)
             {
                 values.Add(point.Value);
-                dates.Add(point.Date.ToString());
+                dates.Add(point.Date.ToString("MM yyyy"));
             }
             values.Reverse();
             dates.Reverse();
+
+
+            int n = dates.Count;
+            Labels.Add(dates[0]);
+            Labels.Add(dates[n / 2]);
+            Labels.Add(dates[n - 1]);
+
             SeriesCollection.Add(new LineSeries
             {
                 Title = givenData.Symbol,

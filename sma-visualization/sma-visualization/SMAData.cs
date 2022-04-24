@@ -46,4 +46,17 @@ namespace sma_visualization
                 Value = value;
             }
         }
+
+    public class SMATable
+    {
+        public string Symbol { get; set; }
+        public string Date { get; set; }
+        public double Value { get; set; }
+        public SMATable(string symbol, string date, double value )
+        {
+            Symbol = symbol;
+            Date = date;    
+            Value = value;
+        }
+    }
     }
