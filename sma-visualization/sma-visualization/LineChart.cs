@@ -33,9 +33,11 @@ namespace sma_visualization
                 values.Add(point.Value);
                 dates.Add(point.Date.ToString());
             }
+            values.Reverse();
+            dates.Reverse();
             SeriesCollection.Add(new LineSeries
             {
-                Title = "Line chart",
+                Title = givenData.Symbol,
                 Values = new ChartValues<double>(values),
                 LineSmoothness = 0,
                 PointGeometry = null,

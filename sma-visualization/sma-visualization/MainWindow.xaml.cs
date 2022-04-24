@@ -98,12 +98,45 @@ namespace sma_visualization
                 SMAData data = parser.parseData(symbol, interval, timePeriod, seriesType);
                 currentData = data;
                 lineChart.showData(data);
+            } else
+            {
+                changeBorderColors(symbol, interval, seriesType, timePeriod);
+                MessageBox.Show("Invalid inputs!");
             }
 
+        }
+        private void changeBorderColors(string symbol, string interval, string seriesType, string timePeriod)
+        {
+            if (symbol == "")
+                symbolBorder.BorderBrush = Brushes.Red;
+            if(interval == "")
+                intervalBorder.BorderBrush = Brushes.Red;
+            if(seriesType == "")
+                seriesBorder.BorderBrush = Brushes.Red;
+            if(isTimePeriodValid(timePeriod))
+                textTimePeriod.BorderBrush = Brushes.Red;
+        }
+
+        private bool isTimePeriodValid(string timePeriod)
+        {
+            try
+            {
+                int value = Convert.ToInt32(timePeriod);
+                if (value <= 0)
+                    return false;
+                return true;
+            }
+            catch (Exception)
+            {
+
+            }
+            return false;
         }
 
         private bool isDataValid(string symbol, string interval, string seriesType, string timePeriod)
         {
+            if (symbol == "" || interval == "" || seriesType == "" || isTimePeriodValid(timePeriod))
+                return false;
             return true;
         }
 

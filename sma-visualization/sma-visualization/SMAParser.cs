@@ -24,6 +24,7 @@ namespace sma_visualization
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 dynamic json_data = js.Deserialize(client.DownloadString(queryUri), typeof(object));
+                Console.WriteLine(json_data);
                 dynamic metaData = json_data["Meta Data"];
                 dynamic SMAListRaw = json_data["Technical Analysis: SMA"];
 
@@ -39,7 +40,7 @@ namespace sma_visualization
                 foreach (string smaDate in SMAListRaw.Keys)
                 {
                     DateTime date = createDateObject(smaDate);
-                    SMA newSMA = new SMA(date, Convert.ToDouble(SMAListRaw[smaDate]["SMA"]));
+                    SMA newSMA = new SMA(date, Math.Round(Convert.ToDouble(SMAListRaw[smaDate]["SMA"]), 2));
                     smaData.Add(newSMA);
                 }
 

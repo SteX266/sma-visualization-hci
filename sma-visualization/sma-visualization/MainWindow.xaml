@@ -40,16 +40,22 @@
             </Label>
 
             <Label Content="Symbol:" HorizontalAlignment="Center" Grid.Row="1"></Label>
+            <Border Name="symbolBorder" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="4 4 4 4"/>
             <ComboBox Name="comboSymbol" Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"/>
 
             <Label Content="Interval:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2"></Label>
+            <Border Name="intervalBorder" BorderThickness="1" Grid.Column="1" Grid.Row="2" Margin="4 4 4 4"/>
             <ComboBox Name="comboInterval" Margin="5 5 5 5" Grid.Column="1" Grid.Row="2"></ComboBox>
 
             <Label Content="Time period:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="3"></Label>
-            <TextBox Name ="textTimePeriod" Margin="5 5 5 5" Grid.Column="1" Grid.Row="3"></TextBox>
+            <TextBox Name ="textTimePeriod" Margin="5 5 5 5" Grid.Column="1" Grid.Row="3" Text="1"></TextBox>
 
             <Label Content="Series type:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="4"></Label>
-            <ComboBox Name="comboSeriesType" Margin="5 5 5 5" Grid.Column="1" Grid.Row="4"></ComboBox>
+            <Border Name="seriesBorder" BorderThickness="1" Grid.Column="1" Grid.Row="4" Margin="4 4 4 4"/>
+            <ComboBox Name="comboSeriesType" Margin="5 5 5 5" Grid.Column="1" Grid.Row="4">
+                
+            </ComboBox>
+
 
             <Button Name ="btnClear" Click="ClearLineChart" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="5" Content="Clear" Margin="15 5 15 5" Style="{StaticResource button}"></Button>
             <Button Name="btnShow" Click="ShowLineChart"  Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="5" Content="Show" Margin="15 5 15 5" Style="{StaticResource button}"></Button>
@@ -59,7 +65,7 @@
         <Grid Grid.Column="1">
             <lvc:CartesianChart LegendLocation="Right" Series="{Binding Path=lineChart.SeriesCollection}">
                 <lvc:CartesianChart.AxisY>
-                    <lvc:Axis Title="Sales" LabelFormatter="{Binding Path=lineChart.YFormatter}"></lvc:Axis>
+                    <lvc:Axis Title="USD" LabelFormatter="{Binding Path=lineChart.YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Month" Labels="{Binding Path=lineChart.Labels}"></lvc:Axis>
