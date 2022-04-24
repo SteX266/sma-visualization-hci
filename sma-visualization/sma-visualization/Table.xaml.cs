@@ -20,7 +20,7 @@ namespace sma_visualization
         public Table(SMAData data)
         {
             InitializeComponent();
-
+            symbolLabel.Content = data.Symbol;
             foreach(SMA sma in data.SMAlist)
             {
                 string dateString;
@@ -33,7 +33,8 @@ namespace sma_visualization
                 {
                     dateString = sma.Date.ToString("dd.MM.yyyy HH:mm");
                 }
-                SMATable tableItem = new SMATable(data.Symbol, dateString, sma.Value);
+
+                SMATable tableItem = new SMATable(data.Symbol, dateString, sma.Value.ToString() + " USD");
 
                 TableGrid.Items.Add(tableItem);
             }

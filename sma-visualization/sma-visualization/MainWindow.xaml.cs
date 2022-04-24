@@ -78,6 +78,7 @@ namespace sma_visualization
         private void ClearLineChart(object sender, RoutedEventArgs e)
         {
             lineChart.ClearData();
+            this.currentData = new SMAData();
             comboSymbol.SelectedIndex = -1;
 
             comboSeriesType.SelectedIndex = -1;

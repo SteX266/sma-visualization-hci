@@ -8,7 +8,7 @@
         Title="Table" Height="470" Width="800">
     <Grid>
         <StackPanel>
-            <Label HorizontalAlignment="Center">TABLE</Label>
+            <Label Name="symbolLabel" HorizontalAlignment="Center">TABLE</Label>
             <DataGrid x:Name="TableGrid" Height="400" Width="780" CanUserResizeRows="False" CanUserResizeColumns="False" RenderTransformOrigin="0.5,0.5">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -20,9 +20,8 @@
                 </DataGrid.Resources>
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="SYMBOL" Width="*" Binding="{Binding Symbol}"/>
-                    <DataGridTextColumn Header="DATE" Width="*" Binding="{Binding Date}"/>
-                    <DataGridTextColumn Header="VALUE" Width="*" Binding="{Binding Value}"/>
+                    <DataGridTextColumn Header="DATE" Width="*" Binding="{Binding Date, Mode=OneWay}"/>
+                    <DataGridTextColumn Header="VALUE" Width="*" Binding="{Binding Value, Mode=OneWay}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

@@ -51,8 +51,8 @@ namespace sma_visualization
     {
         public string Symbol { get; set; }
         public string Date { get; set; }
-        public double Value { get; set; }
-        public SMATable(string symbol, string date, double value )
+        public string Value { get; set; }
+        public SMATable(string symbol, string date, string value )
         {
             Symbol = symbol;
             Date = date;    
