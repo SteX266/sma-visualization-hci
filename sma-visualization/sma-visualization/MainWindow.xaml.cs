@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using Newtonsoft.Json;
 
 namespace sma_visualization
 {
@@ -48,9 +50,8 @@ namespace sma_visualization
             List<String> intervals = new List<String>();
             List<String> seriesTypes = new List<String>();
 
-            symbols.Add("AAPL");
-            symbols.Add("DHI");
-            symbols.Add("GOOGL");
+            symbols = loadSymbols();
+
 
 
             intervals.Add("1min");
@@ -75,6 +76,21 @@ namespace sma_visualization
 
 
 
+        }
+
+        private List<string> loadSymbols()
+        {
+            List<string> symbols = new List<string>();
+            using (StreamReader r = new StreamReader("../../symbols.json"))
+            {
+                string json = r.ReadToEnd();
+                List<Item> items = JsonConvert.DeserializeObject<List<Item>>(json);
+                foreach (Item item in items)
+                {
+                    symbols.Add(item.Symbol);
+                }
+            }
+            return symbols;
         }
 
         private void ClearLineChart(object sender, RoutedEventArgs e)
@@ -104,6 +120,10 @@ namespace sma_visualization
             {
                 SMAData data = parser.parseData(symbol, interval, timePeriod, seriesType);
                 currentData = data;
+                if (data.SMAlist.Count == 0)
+                {
+                    return;
+                }
                 XAxis.Labels = lineChart.Labels;
                 lineChart.showData(data);
                 barChart.showData(data);

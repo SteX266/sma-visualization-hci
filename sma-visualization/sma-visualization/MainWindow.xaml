@@ -41,7 +41,7 @@
 
             <Label Content="Symbol:" HorizontalAlignment="Center" Grid.Row="1"></Label>
             <Border Name="symbolBorder" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="4 4 4 4"/>
-            <ComboBox Name="comboSymbol" Margin="5 5 5 5" Grid.Column="1" Grid.Row="1"/>
+            <ComboBox Name="comboSymbol" Margin="5 5 5 5" Grid.Column="1" Grid.Row="1" IsEditable="True"/>
 
             <Label Content="Interval:" HorizontalAlignment="Center" Grid.Column="0" Grid.Row="2"></Label>
             <Border Name="intervalBorder" BorderThickness="1" Grid.Column="1" Grid.Row="2" Margin="4 4 4 4"/>

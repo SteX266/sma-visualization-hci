@@ -24,7 +24,12 @@ namespace sma_visualization
 
                 JavaScriptSerializer js = new JavaScriptSerializer();
                 dynamic json_data = js.Deserialize(client.DownloadString(queryUri), typeof(object));
-                Console.WriteLine(json_data);
+                if(json_data.Count == 0)
+                {
+                    return new SMAData();
+                }
+
+
                 dynamic metaData = json_data["Meta Data"];
                 dynamic SMAListRaw = json_data["Technical Analysis: SMA"];
 
