@@ -48,6 +48,7 @@ namespace sma_visualization
             {
                 Title = givenData.Symbol,
                 Values = chartValues,
+                ColumnPadding = 0
             });
         }
         public void ClearData()

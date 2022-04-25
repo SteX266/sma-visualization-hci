@@ -122,6 +122,7 @@ namespace sma_visualization
                 currentData = data;
                 if (data.SMAlist.Count == 0)
                 {
+                    MessageBox.Show("Invalid inputs!");
                     return;
                 }
                 XAxis.Labels = lineChart.Labels;
