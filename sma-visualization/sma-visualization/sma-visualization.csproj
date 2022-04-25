@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BarChart.cs" />
     <Compile Include="LineChart.cs" />
     <Compile Include="SMAData.cs" />
     <Compile Include="SMAParser.cs" />

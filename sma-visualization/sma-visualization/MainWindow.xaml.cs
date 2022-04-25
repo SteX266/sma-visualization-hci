@@ -24,6 +24,7 @@ namespace sma_visualization
     {
 
         public LineChart lineChart { get; set; }
+        public BarChart barChart { get; set; }
         public SMAParser parser { get; set; }
         SMAData currentData { get; set; }
 
@@ -33,6 +34,7 @@ namespace sma_visualization
 
             parser = new SMAParser();
             lineChart = new LineChart();
+            barChart = new BarChart();
            
             DataContext = this;
             fillComboboxes();
@@ -78,6 +80,7 @@ namespace sma_visualization
         private void ClearLineChart(object sender, RoutedEventArgs e)
         {
             lineChart.ClearData();
+            barChart.ClearData();
             this.currentData = new SMAData();
             comboSymbol.SelectedIndex = -1;
 
@@ -90,6 +93,7 @@ namespace sma_visualization
         {
 
             lineChart.ClearData();
+            barChart.ClearData();
             string symbol = comboSymbol.Text;
             string interval = comboInterval.Text;
             string seriesType = comboSeriesType.Text;
@@ -102,6 +106,7 @@ namespace sma_visualization
                 currentData = data;
                 XAxis.Labels = lineChart.Labels;
                 lineChart.showData(data);
+                barChart.showData(data);
             } else
             {
                 changeBorderColors(symbol, interval, seriesType, timePeriod);

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:sma_visualization"
         mc:Ignorable="d"
-        Title="Table" Height="470" Width="800">
+        Title="Tabela" Height="470" Width="800" Icon="/stonks.png">
     <Grid>
         <StackPanel>
             <Label Name="symbolLabel" HorizontalAlignment="Center">TABLE</Label>

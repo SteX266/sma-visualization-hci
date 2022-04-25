@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:sma_visualization"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="SMA Visualization" Height="450" Width="800" Icon="/stonks.png">
+        Title="SMA Visualization" Height="720" Width="1280" Icon="/stonks.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -63,7 +63,11 @@
 
         </Grid>
         <Grid Grid.Column="1">
-            <lvc:CartesianChart LegendLocation="Right" Series="{Binding Path=lineChart.SeriesCollection}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <lvc:CartesianChart Grid.Column="1" Name="LineChart" LegendLocation="Right" Series="{Binding Path=lineChart.SeriesCollection}">
                 <lvc:CartesianChart.AxisY>
                     <lvc:Axis Title="USD" LabelFormatter="{Binding Path=lineChart.YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>
@@ -71,6 +75,19 @@
                     <lvc:Axis Name="XAxis" Title="Date" Labels="{Binding Path=lineChart.Labels}"></lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
+
+
+        <lvc:CartesianChart Grid.Row="1" Name="BarChart" LegendLocation="Right" Series="{Binding Path=barChart.SeriesCollection}">
+                    <lvc:CartesianChart.AxisY>
+                        <lvc:Axis Title="USD" LabelFormatter="{Binding Path=barChart.YFormatter}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisY>
+                    <lvc:CartesianChart.AxisX>
+                        <lvc:Axis Name="XOsa" Title="Date" Labels="{Binding Path=barChart.Labels}"></lvc:Axis>
+                    </lvc:CartesianChart.AxisX>
+                </lvc:CartesianChart>
+
         </Grid>
+
+
     </Grid>
 </Window>
